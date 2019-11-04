@@ -1,0 +1,18 @@
+<div class = "container">
+    <h2>Lista utenti:</h2>
+    <div *ngIf="users; else noUsers">
+        <ul id="userList">
+            <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
+                <span class = "badge">{{user.id}}</span>{{user.name}}
+            </li>
+        </ul>
+    </div>
+    <ng-template #noUsers>
+        <h3>Nessun Utente</h3>
+    </ng-template>
+    <div *ngIf="selectedUser">
+        <span>Name: <input [(ngModel)]="selectedUser.name" placeholder="name"/></span>
+        <br>
+        <span>Privacy: <input type = "checkbox" [(ngModel)]="selectedUser.privacy" placeholder="privacy"/></span>        
+    </div>
+</div>
