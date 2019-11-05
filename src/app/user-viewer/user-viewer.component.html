@@ -3,7 +3,12 @@
     <div *ngIf="users; else noUsers">
         <ul id="userList">
             <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
-                <span class = "badge">{{user.id}}</span>{{user.name}}
+                <span class = "badge">{{user.id}}</span>
+                {{user.email}}
+                <div *ngIf="user.privacy; else userPrivacyFalse" class = "privacy true"></div>
+                <ng-template #userPrivacyFalse>
+                    <div class = "privacy false"></div>
+                </ng-template>
             </li>
         </ul>
     </div>
@@ -11,7 +16,7 @@
         <h3>Nessun Utente</h3>
     </ng-template>
     <div *ngIf="selectedUser">
-        <span>Name: <input [(ngModel)]="selectedUser.name" placeholder="name"/></span>
+        <span>Email: <input [(ngModel)]="selectedUser.email" placeholder="email"/></span>
         <br>
         <span>Privacy: <input type = "checkbox" [(ngModel)]="selectedUser.privacy" placeholder="privacy"/></span>        
     </div>
