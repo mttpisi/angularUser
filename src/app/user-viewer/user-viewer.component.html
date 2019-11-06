@@ -1,23 +1,26 @@
 <div class = "container">
-    <h2>Lista utenti:</h2>
-    <div *ngIf="users; else noUsers">
-        <ul id="userList">
-            <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
-                <span class = "badge">{{user.id}}</span>
-                {{user.email}}
-                <div *ngIf="user.privacy; else userPrivacyFalse" class = "privacy true"></div>
-                <ng-template #userPrivacyFalse>
-                    <div class = "privacy false"></div>
-                </ng-template>
-            </li>
-        </ul>
+    <div id = "userListContainer">
+        <h2>Lista utenti:</h2>
+        <div *ngIf="users; else noUsers">
+            <ul id="userList">
+                <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
+                    <span class = "badge">{{user.id}}</span>
+                    {{user.email}}<div *ngIf="user.privacy; else userPrivacyFalse" class = "privacy true"></div>
+                    <ng-template #userPrivacyFalse>
+                        <div class = "privacy false"></div>
+                    </ng-template>
+                </li>
+            </ul>
+        </div>
+        <ng-template #noUsers>
+            <h3>Nessun Utente</h3>
+        </ng-template>
     </div>
-    <ng-template #noUsers>
-        <h3>Nessun Utente</h3>
-    </ng-template>
-    <div *ngIf="selectedUser">
-        <span>Email: <input [(ngModel)]="selectedUser.email" placeholder="email"/></span>
+
+    <div *ngIf="selectedUser" id = "selectedUserContainer">
+        <h3>Selected User Info:</h3>
+        <div>Email: <input [(ngModel)]="selectedUser.email" placeholder="email"/></div>
         <br>
-        <span>Privacy: <input type = "checkbox" [(ngModel)]="selectedUser.privacy" placeholder="privacy"/></span>        
+        <div>Privacy: <input type = "checkbox" [(ngModel)]="selectedUser.privacy" placeholder="privacy"/></div>        
     </div>
 </div>

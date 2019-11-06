@@ -1,15 +1,25 @@
 /* HeroesComponent's private CSS styles */
+.container{
+  padding: 0.5em 0.5em;
+  background: rgb(235, 235, 235);
+  width: 15vw;
+  border-radius: 3px;
+  overflow: hidden;
+}
+#userListContainer{
+  background: rgb(235, 235, 235);
+  padding: 1em 1em;
+  border-radius: 3px;
+}
 #userList {
-  margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
 }
 #userList li {
   cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #EEE;
+  background-color: #DDD;
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
@@ -17,15 +27,15 @@
 }
 #userList li:hover {
   color: #607D8B;
-  background-color: #DDD;
+  background-color: #CCC;
 }
 #userList li.selected {
   background-color: #CFD8DC;
-  color: white;
+  font-weight: bold;
+  color: black;
 }
 #userList li.selected:hover {
   background-color: #BBD8DC;
-  color: white;
 }
 #userList .badge {
   display: inline-block;
@@ -55,4 +65,18 @@
 #userList .privacy.false{
   background: rgb(215, 0, 0);
   border: 1px solid rgb(133, 133, 133);
+}
+
+#selectedUserContainer{
+  padding: 0.5em 0.3em;
+  border-radius:3px;
+  background: rgb(211, 211, 211);
+}
+#selectedUserContainer h3{
+  text-align: center;
+  margin: 0.2em auto 0.2em auto;
+}
+#selectedUserContainer div{
+  margin:0 auto 0 auto;
+  width:80%;
 }
