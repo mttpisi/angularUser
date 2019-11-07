@@ -1,0 +1,6 @@
+<div *ngIf="user" id = "selectedUserContainer">
+    <h3>Selected User Info:</h3>
+    <div>Email: <input [(ngModel)]="user.email" placeholder="email"/></div>
+    <br>
+    <div>Privacy: <input type = "checkbox" [(ngModel)]="user.privacy" placeholder="privacy"/></div>        
+</div>

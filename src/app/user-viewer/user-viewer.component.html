@@ -17,10 +17,5 @@
         </ng-template>
     </div>
 
-    <div *ngIf="selectedUser" id = "selectedUserContainer">
-        <h3>Selected User Info:</h3>
-        <div>Email: <input [(ngModel)]="selectedUser.email" placeholder="email"/></div>
-        <br>
-        <div>Privacy: <input type = "checkbox" [(ngModel)]="selectedUser.privacy" placeholder="privacy"/></div>        
-    </div>
+    <app-user-detail [user]="selectedUser"></app-user-detail>
 </div>

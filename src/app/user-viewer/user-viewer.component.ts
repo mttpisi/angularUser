@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
-import { USERS } from '../users';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-user-viewer',
@@ -8,14 +8,19 @@ import { USERS } from '../users';
   styleUrls: ['./user-viewer.component.css']
 })
 export class UserViewerComponent implements OnInit {
-  users = USERS;
-  selectedUser : User;
-  constructor() { }
+  users:User[];
+  constructor(private userService : UsersService) { }
 
   ngOnInit() {
+    this.getUsers();
   }
   
-  onSelect(user:User):void{
+  getUsers(): void{
+    this.userService.getUsers().subscribe(users => this.users = users);
+  }
+
+  selectedUser : User;
+  onSelect(user: User):void{
     this.selectedUser = user;
   }
   

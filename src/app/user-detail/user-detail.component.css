@@ -1,0 +1,13 @@
+#selectedUserContainer{
+    padding: 0.5em 0.3em;
+    border-radius:3px;
+    background: rgb(211, 211, 211);
+  }
+  #selectedUserContainer h3{
+    text-align: center;
+    margin: 0.2em auto 0.2em auto;
+  }
+  #selectedUserContainer div{
+    margin:0 auto 0 auto;
+    width:80%;
+  }
